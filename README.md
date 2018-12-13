@@ -1,5 +1,7 @@
 # shellbro/dropbox
 
+[![](https://img.shields.io/docker/build/shellbro/dropbox.svg)](https://hub.docker.com/r/shellbro/dropbox/)
+
 Dropbox in a container.
 
 Running Dropbox in a container is a solution for running Dropbox on "older"
