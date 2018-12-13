@@ -1,6 +1,6 @@
 # shellbro/dropbox
 
-Docker in a container.
+Dropbox in a container.
 
 # Docker Hub
 
