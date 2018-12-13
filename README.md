@@ -1,9 +1,21 @@
-# container-docker
+# shellbro/dropbox
 
 Docker in a container.
 
-# Quick start
+# Quickstart
 
 ```
-docker run --name=dropbox --log-driver=journald --restart=always -d shellbro/dropbox
+docker run -d --name=dropbox --restart=always --log-driver=journald shellbro/dropbox
+```
+
+# Store files on the host
+
+```
+docker run -d --name=dropbox --restart=always --log-driver=journald -v /home/shellbro/Dropbox:/home/dropbox-user/Dropbox shellbro/dropbox
+```
+
+# Check Dropbox status
+
+```
+docker exec -it dropbox /home/dropbox-user/bin/dropbox status
 ```

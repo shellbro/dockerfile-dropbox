@@ -1,8 +1,11 @@
 FROM fedora:29
 
+ARG UID=1000
+ARG GID=1000
+
 RUN dnf makecache && dnf -y install python2 && dnf clean all
 
-RUN useradd dropbox-user
+RUN groupadd -g $GID dropbox-user && useradd -u $UID -g $GID dropbox-user
 USER dropbox-user
 WORKDIR /home/dropbox-user
 
