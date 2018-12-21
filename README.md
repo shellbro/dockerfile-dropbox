@@ -20,7 +20,7 @@ https://hub.docker.com/r/shellbro/dropbox/
 # Quickstart
 
 ```
-docker run -d --name=dropbox --restart=always --log-driver=journald shellbro/dropbox
+docker run --name=dropbox -d --log-driver=journald --restart=always shellbro/dropbox
 ```
 
 # Store files on the host
@@ -29,11 +29,11 @@ Note: replace `/home/shellbro/Dropbox` example path with the host path you would
 like to use.
 
 ```
-docker run -d --name=dropbox --restart=always --log-driver=journald -v /home/shellbro/Dropbox:/home/dropbox-user/Dropbox shellbro/dropbox
+docker run --name=dropbox -d -v /home/shellbro/Dropbox:/home/dropbox-user/Dropbox --log-driver=journald --restart=always shellbro/dropbox
 ```
 
 # Check Dropbox status
 
 ```
-docker exec -it dropbox /home/dropbox-user/bin/dropbox status
+docker exec -ti dropbox /home/dropbox-user/bin/dropbox status
 ```
