@@ -2,7 +2,7 @@
 
 [![](https://img.shields.io/docker/build/shellbro/dropbox.svg)](https://hub.docker.com/r/shellbro/dropbox/)
 
-Dropbox in a container.
+Dropbox in a (Docker) container.
 
 Running Dropbox in a container is a solution for running Dropbox on "older"
 Linux systems thanks to container portability. At the end of 2018 Dropbox team
