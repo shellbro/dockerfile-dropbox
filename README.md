@@ -17,11 +17,13 @@ This image uses automated build service offered by Docker Hub.
 
 https://hub.docker.com/r/shellbro/dropbox/
 
-# Quickstart
+# Quick start
 
 ```
 docker run --name=dropbox -d --log-driver=journald --restart=always shellbro/dropbox
 ```
+
+After container creation see `docker logs dropbox` to link your Dropbox account.
 
 # Store files on the host
 
@@ -35,5 +37,17 @@ docker run --name=dropbox -d -v /home/shellbro/Dropbox:/home/dropbox-user/Dropbo
 # Check Dropbox status
 
 ```
-docker exec -ti dropbox /home/dropbox-user/bin/dropbox status
+docker exec dropbox /home/dropbox-user/bin/dropbox status
+```
+
+You might want to put the following shell alias in your `~/.bashrc` file:
+
+```
+alias dropbox='sudo docker exec dropbox /home/dropbox-user/bin/dropbox'
+```
+
+and simply use it like:
+
+```
+dropbox status
 ```
