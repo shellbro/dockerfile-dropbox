@@ -27,11 +27,11 @@ After container creation see `docker logs dropbox` to link your Dropbox account.
 
 # Store files on the host
 
-Note: replace `/home/user/Dropbox` example path with the host path you would
+Note: replace `/home/shellbro/Dropbox` example path with the host path you would
 like to use.
 
 ```
-docker run --name=dropbox -d -v /home/user/Dropbox:/home/dropbox-user/Dropbox --log-driver=journald --restart=always shellbro/dropbox
+docker run --name=dropbox -d -v /home/shellbro/Dropbox:/home/dropbox-user/Dropbox --log-driver=journald --restart=always shellbro/dropbox
 ```
 
 # Check Dropbox status
@@ -51,3 +51,24 @@ and simply use it like:
 ```
 dropbox status
 ```
+
+# Updating Dropbox
+
+Everytime this image is built, the latest Dropbox version is installed. I force
+rebuilding of this image every now end then. To update your image:
+
+```
+docker pull shellbro/dropbox
+docker stop dropbox
+docker rm dropbox
+```
+
+and start your container from new image as for the first time.
+
+# Dropbox auto-upgrade issue
+
+Unfortunately, it happens that Dropbox tries to upgrade itself inside a
+container regularly but that fails when running inside a container. Both
+`dropbox status` and `docker logs dropbox` state that clearly. The only
+workaround for this I know about is to follow the procedure of manual Dropbox
+update from the previous section.
