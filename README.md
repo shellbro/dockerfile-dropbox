@@ -63,7 +63,7 @@ docker stop dropbox
 docker rm dropbox
 ```
 
-and start your container from new image as for the first time.
+and start your container from the new image as for the first time.
 
 # Dropbox auto-upgrade issue
 
