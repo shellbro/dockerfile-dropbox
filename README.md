@@ -55,7 +55,7 @@ dropbox status
 # Updating Dropbox
 
 Everytime this image is built, the latest Dropbox version is installed. I force
-rebuilding of this image every now end then. To update your image:
+rebuilding of this image every now end then. To update your setup:
 
 ```
 docker pull shellbro/dropbox
