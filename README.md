@@ -5,9 +5,9 @@
 Dropbox in a (Docker) container.
 
 Running Dropbox in a container is an easy solution for running Dropbox on
-"older" Linux systems thanks to container portability. At the end of 2018
-Dropbox team dropped support for Linux operating systems that use `glibc < 2.19`
-and this affects CentOS 7 which ships with `glibc 2.17`. This container image is
+older Linux systems thanks to container portability. At the end of 2018 Dropbox
+team dropped support for Linux operating systems that use `glibc < 2.19` and
+this affects CentOS 7 which ships with `glibc 2.17`. This container image is
 based on Fedora 29 (the latest Fedora release as of this writing) which runs
 with much newer `glibc 2.28`.
 
