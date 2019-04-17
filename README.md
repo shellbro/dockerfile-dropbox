@@ -43,7 +43,7 @@ docker exec -ti -e "LANG=en_US.UTF-8" dropbox /home/dropbox-user/bin/dropbox sta
 You might want to put the following shell alias in your `~/.bashrc` file:
 
 ```
-alias dropbox='sudo docker exec -ti -e "LANG=en_US.UTF-8" dropbox /home/dropbox-user/bin/dropbox'
+alias dropbox='docker exec -ti -e "LANG=en_US.UTF-8" dropbox /home/dropbox-user/bin/dropbox'
 ```
 
 and simply use it like:
