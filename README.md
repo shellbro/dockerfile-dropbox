@@ -17,7 +17,7 @@ This image uses automated build service offered by Docker Hub.
 
 https://hub.docker.com/r/shellbro/dropbox/
 
-# Quick start
+# Quick start (store files inside a container)
 
 ```
 docker run --name=dropbox -d --log-driver=journald --restart=always shellbro/dropbox
@@ -25,7 +25,7 @@ docker run --name=dropbox -d --log-driver=journald --restart=always shellbro/dro
 
 After container creation see `docker logs dropbox` to link your Dropbox account.
 
-# Store files on the host
+# Quick start (store files on the host)
 
 Note: replace `/home/shellbro/Dropbox` example path with the host path you would
 like to use.
@@ -52,10 +52,19 @@ and simply use it like:
 dropbox status
 ```
 
-# Updating Dropbox
+# Auto-update issue
 
-Everytime this image is built, the latest Dropbox version is installed. I force
-rebuilding of this image every now end then. To update your setup:
+Unfortunately, it happens that Dropbox tries to uppdate itself inside
+a container periodically but that process fails when running inside a container.
+You can see when this happens by running `dropbox status` or
+`docker logs dropbox` command. The only workaround I know about at the moment
+is to follow the procedure of manual Dropbox update from the section below.
+
+# Manual update
+
+Every time this image is built, the latest Dropbox version is utilized.
+I rebuild this image each time the new Dropbox version is released. To update
+your setup just run:
 
 ```
 docker pull shellbro/dropbox
@@ -63,12 +72,4 @@ docker stop dropbox
 docker rm dropbox
 ```
 
-and start your container from the new image as for the first time.
-
-# Dropbox auto-upgrade issue
-
-Unfortunately, it happens that Dropbox tries to upgrade itself inside a
-container regularly but that fails when running inside a container. Both
-`dropbox status` and `docker logs dropbox` state that clearly. The only
-workaround for this I know about is to follow the procedure of manual Dropbox
-update from the previous section.
+and start your container from the new image as in the `Quick start` section.
