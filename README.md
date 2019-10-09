@@ -22,8 +22,8 @@ https://hub.docker.com/r/shellbro/dropbox/
 docker run --name=dropbox -d --log-driver=journald --restart=always shellbro/dropbox
 ```
 
-After container is created copy the URL from `docker logs dropbox` to link your
-Dropbox account.
+After container is created click on the URL from `docker logs dropbox` to link
+your Dropbox account.
 
 # Quick start (store files on the host)
 
