@@ -3,7 +3,7 @@ FROM shellbro/centos:8.0-0
 ARG UID=1000
 ARG GID=1000
 
-RUN yum makecache && yum -y install python2 && yum clean all
+RUN yum makecache && yum -y install python2 python3 && yum clean all
 
 RUN groupadd -g $GID dropbox-user && useradd -u $UID -g $GID dropbox-user
 USER dropbox-user
