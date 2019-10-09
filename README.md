@@ -1,15 +1,14 @@
 # shellbro/dropbox
 
-[![](https://img.shields.io/docker/build/shellbro/dropbox.svg)](https://hub.docker.com/r/shellbro/dropbox/)
+[![](https://img.shields.io/docker/cloud/build/shellbro/dropbox)](https://hub.docker.com/r/shellbro/dropbox/)
 
 Dropbox in a (Docker) container.
 
-Running Dropbox in a container is an easy solution for running Dropbox on
-older Linux systems thanks to container portability. At the end of 2018 Dropbox
-team dropped support for Linux operating systems that use `glibc < 2.19` and
-this affects CentOS 7 which ships with `glibc 2.17`. This container image is
-based on Fedora 29 (the latest Fedora release as of this writing) which runs
-with much newer `glibc 2.28`.
+Running Dropbox in a container is a solution for running Dropbox on older Linux
+systems. At the end of 2018 Dropbox team dropped support for Linux operating
+systems that use `glibc < 2.19` and this affects CentOS 7 which ships with
+`glibc 2.17`. This container image is based on CentOS 8 which runs with newer
+`glibc 2.28`.
 
 # Docker Hub
 
@@ -23,7 +22,8 @@ https://hub.docker.com/r/shellbro/dropbox/
 docker run --name=dropbox -d --log-driver=journald --restart=always shellbro/dropbox
 ```
 
-After container creation see `docker logs dropbox` to link your Dropbox account.
+After container is created copy the URL from `docker logs dropbox` to link your
+Dropbox account.
 
 # Quick start (store files on the host)
 
@@ -52,24 +52,24 @@ and simply use it like:
 dropbox status
 ```
 
-# Auto-update issue
-
-Unfortunately, it happens that Dropbox tries to uppdate itself inside
-a container periodically but that process fails when running inside a container.
-You can see when this happens by running `dropbox status` or
-`docker logs dropbox` command. The only workaround I know about at the moment
-is to follow the procedure of manual Dropbox update from the section below.
-
 # Manual update
 
-Every time this image is built, the latest Dropbox version is utilized.
-I rebuild this image each time the new Dropbox version is released. To update
-your setup just run:
+Shortly after each new version of Dropbox is released I update this image
+utilizing the latest Dropbox version available. To update your setup just run:
 
 ```
-docker pull shellbro/dropbox
 docker stop dropbox
 docker rm dropbox
+docker pull shellbro/dropbox
 ```
 
-and start your container from the new image as in the `Quick start` section.
+and start your container from the new image like in the `Quick start` sections.
+
+# Auto-update issue
+
+Unfortunately, it happens that Dropbox tries to update itself inside
+a container after it detects that update is available but that process fails
+when running inside a container. You can check that this is the case by running
+`dropbox status` or `docker logs dropbox` command. The only workaround I know
+about at the moment is to follow the procedure of manual Dropbox update from the
+section above after each Dropbox release.

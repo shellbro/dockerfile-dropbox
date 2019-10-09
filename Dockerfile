@@ -1,9 +1,9 @@
-FROM fedora:29
+FROM shellbro/centos:8.0-0
 
 ARG UID=1000
 ARG GID=1000
 
-RUN dnf makecache && dnf -y install python2 && dnf clean all
+RUN yum makecache && yum -y install python2 && yum clean all
 
 RUN groupadd -g $GID dropbox-user && useradd -u $UID -g $GID dropbox-user
 USER dropbox-user
@@ -18,4 +18,4 @@ RUN curl -L -o bin/dropbox \
 
 EXPOSE 17500
 
-CMD ["/home/dropbox-user/.dropbox-dist/dropboxd"]
+ENTRYPOINT ["/home/dropbox-user/.dropbox-dist/dropboxd"]
