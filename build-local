@@ -1,3 +1,3 @@
 #!/usr/bin/bash
 
-/usr/bin/docker build --pull --no-cache --tag=localhost/shellbro/dropbox .
+/usr/bin/docker build --pull --tag=localhost/shellbro/dropbox:latest .

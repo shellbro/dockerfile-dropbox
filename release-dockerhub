@@ -1,0 +1,11 @@
+#!/usr/bin/bash
+
+set -o nounset
+set -o errexit
+
+readonly REPO="shellbro/dropbox"
+readonly TAG="$(cat VERSION)"
+
+/usr/bin/docker pull "$REPO:latest"
+/usr/bin/docker tag "$REPO:latest" "$REPO:$TAG"
+/usr/bin/docker push "$REPO:$TAG"
