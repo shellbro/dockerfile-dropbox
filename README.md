@@ -52,6 +52,12 @@ and simply use it like:
 dropbox status
 ```
 
+or
+
+```
+dropbox version
+```
+
 # Manual update
 
 Shortly after each new version of Dropbox is released I update this image
