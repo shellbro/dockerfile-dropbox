@@ -19,7 +19,7 @@ https://hub.docker.com/r/shellbro/dropbox/
 # Quick start (store files inside a container)
 
 ```
-docker run --name=dropbox -d --log-driver=journald --restart=always shellbro/dropbox
+docker run --name=dropbox -d --restart=always shellbro/dropbox
 ```
 
 After container is created click on the URL from `docker logs dropbox` to link
@@ -31,19 +31,19 @@ Note: replace `/home/shellbro/Dropbox` example path with the host path you would
 like to use.
 
 ```
-docker run --name=dropbox -d -v /home/shellbro/Dropbox:/home/dropbox-user/Dropbox --log-driver=journald --restart=always shellbro/dropbox
+docker run --name=dropbox -d -v /home/shellbro/Dropbox:/home/dropbox-user/Dropbox --restart=always shellbro/dropbox
 ```
 
 # Check Dropbox status
 
 ```
-docker exec -ti -e "LANG=en_US.UTF-8" dropbox /home/dropbox-user/bin/dropbox status
+docker exec -it -e "LANG=en_US.UTF-8" dropbox /home/dropbox-user/bin/dropbox status
 ```
 
 You might want to put the following shell alias in your `~/.bashrc` file:
 
 ```
-alias dropbox='docker exec -ti -e "LANG=en_US.UTF-8" dropbox /home/dropbox-user/bin/dropbox'
+alias dropbox='docker exec -it -e "LANG=en_US.UTF-8" dropbox /home/dropbox-user/bin/dropbox'
 ```
 
 and simply use it like:
