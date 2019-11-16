@@ -4,8 +4,8 @@ ARG UID=1000
 ARG GID=1000
 ARG LOGIN=dropbox-user
 
-RUN yum makecache && yum -y install python2 python3 && yum clean all &&\
-    groupadd -g $GID $LOGIN && useradd -u $UID -g $GID $LOGIN
+RUN yum makecache && yum -y install python2 python3 libatomic && yum clean all\
+    && groupadd -g $GID $LOGIN && useradd -u $UID -g $GID $LOGIN
 USER $LOGIN
 WORKDIR /home/$LOGIN
 
