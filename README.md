@@ -19,10 +19,10 @@ https://hub.docker.com/r/shellbro/dropbox/
 # Quick start (store files inside a container)
 
 ```
-docker run --name=dropbox -d --restart=always shellbro/dropbox
+$ docker run --name=dropbox -d --restart=always shellbro/dropbox
 ```
 
-After container is created click on the URL from `docker logs dropbox` to link
+After container is created click on the URL from `$ docker logs dropbox` to link
 your Dropbox account.
 
 # Quick start (store files on the host)
@@ -31,13 +31,13 @@ Note: replace `/home/shellbro/Dropbox` example path with the host path you would
 like to use.
 
 ```
-docker run --name=dropbox -d -v /home/shellbro/Dropbox:/home/dropbox-user/Dropbox --restart=always shellbro/dropbox
+$ docker run --name=dropbox -d -v /home/shellbro/Dropbox:/home/dropbox-user/Dropbox --restart=always shellbro/dropbox
 ```
 
 # Check Dropbox status
 
 ```
-docker exec -it -e "LANG=en_US.UTF-8" dropbox /home/dropbox-user/bin/dropbox status
+$ docker exec -it -e "LANG=en_US.UTF-8" dropbox /home/dropbox-user/bin/dropbox status
 ```
 
 You might want to put the following shell alias in your `~/.bashrc` file:
@@ -49,13 +49,13 @@ alias dropbox='docker exec -it -e "LANG=en_US.UTF-8" dropbox /home/dropbox-user/
 and simply use it like:
 
 ```
-dropbox status
+$ dropbox status
 ```
 
 or
 
 ```
-dropbox version
+$ dropbox version
 ```
 
 # Manual update
@@ -64,9 +64,7 @@ Shortly after each new version of Dropbox is released I update this image
 utilizing the latest Dropbox version available. To update your setup just run:
 
 ```
-docker stop dropbox
-docker rm dropbox
-docker pull shellbro/dropbox
+$ docker stop dropbox && docker rm dropbox && docker pull shellbro/dropbox
 ```
 
 and start your container from the new image like in the `Quick start` sections.
