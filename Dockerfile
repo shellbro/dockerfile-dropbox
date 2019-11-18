@@ -6,6 +6,7 @@ ARG LOGIN=dropbox-user
 
 RUN yum makecache && yum -y install python2 python3 libatomic && yum clean all\
     && groupadd -g $GID $LOGIN && useradd -u $UID -g $GID $LOGIN
+
 USER $LOGIN
 WORKDIR /home/$LOGIN
 
