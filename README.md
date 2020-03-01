@@ -33,7 +33,7 @@ Note: replace `/home/shellbro/Dropbox` example path with the host path you would
 like to use.
 
 ```
-$ docker run --name=dropbox -d -v /home/shellbro/Dropbox:/home/dropbox-user/Dropbox\ --restart=always shellbro/dropbox
+$ docker run --name=dropbox -d -v /home/shellbro/Dropbox:/home/dropbox-user/Dropbox --restart=always shellbro/dropbox
 ```
 
 ## Check Dropbox status
