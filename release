@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
+readonly repo=shellbro/dropbox
+readonly tag="$(cat VERSION)-$(date +%s)"
+
+docker pull "$repo:latest"
+docker tag "$repo:latest" "$repo:$tag"
+docker push "$repo:$tag"
+
+git pull origin master
+git tag "v$tag"
+git push origin "v$tag"
