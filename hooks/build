@@ -1,0 +1,6 @@
+#!/bin/bash
+
+docker build --pull --no-cache\
+       --build-arg=HOST_UID=1000\
+       --build-arg=HOST_GID=1000\
+       -t "$IMAGE_NAME" "$@" .
