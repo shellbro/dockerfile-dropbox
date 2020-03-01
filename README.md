@@ -7,14 +7,14 @@ Dropbox in a container.
 ## Rationale
 
 Running Dropbox in a container is a solution for running Dropbox on older Linux
-systems. At the end of 2018 Dropbox team dropped support for Linux operating
-systems that use `glibc < 2.19` and this affects CentOS 7 which ships with
-`glibc 2.17`. This container image is based on CentOS 8 which runs with newer
-`glibc 2.28`.
+systems. At the end of 2018 Dropbox dropped support for Linux operating systems
+that use `glibc < 2.19` and this affects CentOS 7 which ships with `glibc 2.17`.
+
+This container image is based on CentOS 8 which runs with newer `glibc 2.28`.
 
 ## Docker Hub
 
-This image uses automated build service offered by Docker Hub.
+Image uses automated build service offered by Docker Hub.
 
 https://hub.docker.com/r/shellbro/dropbox/
 
@@ -78,4 +78,4 @@ setup just run:
 $ docker stop dropbox && docker rm dropbox && docker pull shellbro/dropbox
 ```
 
-and start your container from the new image like in the `Quick start` sections.
+and start your container from the new image like in the `Quick start` section.
