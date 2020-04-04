@@ -3,8 +3,8 @@ FROM shellbro/centos:8.1.1911-1583066294
 ARG HOST_UID=1001
 ARG HOST_GID=1001
 
-RUN yum makecache && yum -y install python2 python3 libatomic &&\
-    yum clean all &&\
+RUN yum makecache && yum -y install python2 python3 libatomic mesa-libglapi\
+    libXext libXdamage libxshmfence libXxf86vm && yum clean all &&\
     groupadd -g $HOST_GID dropbox-user &&\
     useradd -u $HOST_UID -g $HOST_GID dropbox-user
 
