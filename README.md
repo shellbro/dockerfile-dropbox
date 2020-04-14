@@ -21,7 +21,7 @@ https://hub.docker.com/r/shellbro/dropbox/
 ## Quick start (store files inside a container)
 
 ```
-$ docker run --restart=always --name=dropbox -d shellbro/dropbox
+$ docker run --name=dropbox --restart=always -d shellbro/dropbox
 ```
 
 After container is created click on the URL from `$ docker logs dropbox` to link
@@ -33,7 +33,7 @@ Note: replace `/home/shellbro/Dropbox` example path with the host path you would
 like to use.
 
 ```
-$ docker run --restart=always --name=dropbox -d -v /home/shellbro/Dropbox:/home/dropbox-user/Dropbox shellbro/dropbox
+$ docker run --name=dropbox --restart=always -d -v /home/shellbro/Dropbox:/home/dropbox-user/Dropbox shellbro/dropbox
 ```
 
 ## Check Dropbox status
