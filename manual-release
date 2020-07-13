@@ -1,15 +1,15 @@
 #!/bin/bash
 
+set -o nounset
 set -o errexit
 set -o pipefail
-set -o nounset
 
 readonly repo=shellbro/dropbox
 readonly tag="$(cat VERSION)-$(date +%s)"
 
-docker pull "$repo:latest"
-docker tag "$repo:latest" "$repo:$tag"
-docker push "$repo:$tag"
+sudo docker pull "$repo:latest"
+sudo docker tag "$repo:latest" "$repo:$tag"
+sudo docker push "$repo:$tag"
 
 git pull origin master
 git tag "v$tag"
