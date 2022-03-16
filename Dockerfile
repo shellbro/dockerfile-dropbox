@@ -1,4 +1,4 @@
-FROM shellbro/centos:8.1.1911-1586073474
+FROM rockylinux:8.5
 
 ARG HOST_UID=1001
 ARG HOST_GID=1001
